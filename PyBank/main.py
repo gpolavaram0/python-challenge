@@ -55,6 +55,18 @@ for row in budgetReader:
 
 changeProfit = int(budgetReader[monthCounter-1][1]) - int(budgetReader[0][1])
 avgChange = changeProfit/(monthCounter-1)
+
+PyBank_txt = open("PyBank.txt",'w')
+
+PyBank_txt.write("Financial Analysis\n----------------------------\n")
+PyBank_txt.write(f"Total Months: {monthCounter}" + "\n")
+PyBank_txt.write(f"Total Profit: ${profitCounter}" + "\n")
+PyBank_txt.write(f"Average  Change: ${avgChange}" + "\n")
+PyBank_txt.write("Greatest Increase in Profits: " + maxProfitIncRow + " " + "($" +str(maxProfitInc) + ")")
+PyBank_txt.write("\nGreatest Decrease in Profits: " + maxProfitDecRow + " " + "($" +str(maxProfitDec) + ")")
+
+PyBank_txt.close()
+
 print("Financial Analysis\n----------------------------")
 print(f"Total Months: {monthCounter}")
 print(f"Total Profit: ${profitCounter}")
